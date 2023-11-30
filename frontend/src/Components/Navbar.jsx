@@ -8,7 +8,7 @@ function Navbar() {
       <div className={styles.navFirstChild}>
         <img src="lamaLogo.png" alt="" className={styles.logoImage}  />
         <div style={{width:"10px"}}></div>
-        <Text as="b" fontSize="25px" color="#00b0f2">LAMA.</Text>
+        <Text as="b" fontSize="25px" color="#7229af">LAMA.</Text>
       </div>
 
       <div className={styles.navSecondChild}>
