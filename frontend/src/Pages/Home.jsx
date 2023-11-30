@@ -1,20 +1,24 @@
-import React from 'react';
-import { Text,Button } from '@chakra-ui/react';
-import { PlusSquareIcon } from '@chakra-ui/icons'
+import React, { useEffect } from 'react';
+import { Text } from '@chakra-ui/react';
+import CreateProjectModal from '../Components/CreateProjectModal';
+import UserEmailModal from '../Components/UserEmailModal';
+import styles from "../Style/Home.module.css" 
 
 function Home() {
+
+    useEffect(()=>{
+       
+    },[])
+
   return (
     <div style={{marginTop:"5%"}}>
+       <UserEmailModal/>
 
-       <Text as="b" fontSize="50px" color="#7229af">Create a New Project</Text>
+       <Text className={styles.headerText}>Create a New Project</Text>
 
        <br />
 
-            <img style={{
-                width:"30%",
-                height:"300px",
-                marginLeft:"35%"
-            }} 
+            <img  className={styles.poster}
             src="https://thumbs.dreamstime.com/z/freelancers-man-woman-working-together-home-couple-office-isolated-cartoon-workers-vector-people-laptop-213332882.jpg?w=992" 
             alt="" />
        
@@ -31,8 +35,8 @@ function Home() {
 
             <br />
 
-            <Button background="black" color="#fff" colorScheme='messenger'><PlusSquareIcon/><div style={{width:"10px"}}></div>Create a New Project</Button>
-
+            
+            <CreateProjectModal/>
        </div>
 
     </div>

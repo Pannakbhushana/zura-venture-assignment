@@ -1,0 +1,24 @@
+.poster{
+    width: 30%;
+    height: 300px;
+    margin-left: 35%;
+}
+
+.headerText{
+    font-size:40px;
+    font-weight: bold;
+    color:#7229af ;
+}
+
+@media screen and (max-width: 768px) {
+    .poster{
+        width: 80%;
+        height: 300px;
+        margin-left: 10%;
+    }
+    .headerText{
+        font-size:30px;
+        font-weight: bold;
+    }
+  }
+
