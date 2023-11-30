@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import {useNavigate} from "react-router-dom";
+
 import { Input,
     Button,
     useDisclosure,
@@ -19,12 +21,39 @@ import { Input,
 function CreateProjectModal() {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [val, setVal]=useState("");
+    const navigate=useNavigate()
   
     const initialRef = React.useRef(null)
     const finalRef = React.useRef(null)
 
     const handleChange=(e)=>{
         setVal(e.target.value)
+    }
+
+    const handleSave=()=>{
+        postListingData(val);
+        setVal("");
+        
+    }
+
+    const postListingData=(data)=>{
+        fetch("http://localhost:3000/listing",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({title:data}),
+        })
+        .then(res=>res.json())
+        .then((res)=>{
+            console.log(res)
+            alert("project add successfully !")
+            navigate("/listing")
+        })
+        .catch(err=>{
+            alert("Not abe to add project !")
+            console.log(err.message)
+        })
     }
   
     return (
@@ -53,7 +82,7 @@ function CreateProjectModal() {
             <ModalBody pb={6}>
               <FormControl>
                 <FormLabel>Enter Project Name</FormLabel>
-                <Input ref={initialRef} placeholder='Type here' onChange={handleChange} />
+                <Input  placeholder='Type here' onChange={handleChange} value={val} />
                 <br />
                 {val=="" ? <Text color="#C62828" fontSize="12px" >Project name can't be empty</Text>: <Text ></Text>}
               </FormControl>
@@ -61,7 +90,7 @@ function CreateProjectModal() {
             </ModalBody>
   
             <ModalFooter>
-              <Button colorScheme='blue' mr={3}>
+              <Button colorScheme='blue' mr={3} onClick={handleSave}>
                 Save
               </Button>
               <Button onClick={()=>{

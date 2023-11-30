@@ -28,7 +28,10 @@ import { Input,
     }
 
     const handleSave=()=>{
-        onClose()
+        if(val!==""){
+            localStorage.setItem("zuraEmail",JSON.stringify(val))
+            onClose()
+        }
     }
     
     const OverlayOne = () => (
@@ -38,6 +41,7 @@ import { Input,
       />
     )
   
+   
  
   
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -54,7 +58,7 @@ import { Input,
             <ModalBody>
                 <FormControl>
                  
-                    <Input  placeholder='Type here' onChange={handleChange} />
+                    <Input type="email"  placeholder='Type here' onChange={handleChange} value={val} />
                     <br />
                     {val=="" ? <Text color="#C62828" fontSize="12px" >Email name can't be empty</Text>: <Text ></Text>}
                 </FormControl>

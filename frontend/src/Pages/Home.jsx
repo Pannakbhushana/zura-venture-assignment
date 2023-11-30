@@ -1,18 +1,36 @@
-import React, { useEffect } from 'react';
-import { Text } from '@chakra-ui/react';
+import React, { useEffect, useRef } from 'react';
+import { Text,Button } from '@chakra-ui/react';
 import CreateProjectModal from '../Components/CreateProjectModal';
 import UserEmailModal from '../Components/UserEmailModal';
-import styles from "../Style/Home.module.css" 
+import styles from "../Style/Home.module.css";
+import {useNavigate} from "react-router-dom";
 
 function Home() {
-
-    useEffect(()=>{
-       
-    },[])
+    const ref=useRef(true);
+    const navigate=useNavigate()
+    
+    const userEmail=JSON.parse(localStorage.getItem("zuraEmail"));
+    if(userEmail){
+        ref.current=false;
+    }
+    
 
   return (
     <div style={{marginTop:"5%"}}>
-       <UserEmailModal/>
+       {ref.current && <UserEmailModal/>}
+
+       <Button 
+            borderRadius="30px"
+            height="20px"
+            variant='outline'
+            colorScheme='messenger'
+            marginStart="-80%"
+            marginTop="-10%"
+            onClick={()=>{navigate("/listing")}}
+            >
+              <Text fontSize="10px">Go to listing</Text>
+
+            </Button>
 
        <Text className={styles.headerText}>Create a New Project</Text>
 
