@@ -31,7 +31,11 @@ function CreateProjectModal() {
     }
 
     const handleSave=()=>{
-        postListingData(val);
+      let data={
+        title:val,
+        file:[],
+      }
+        postListingData(data);
         setVal("");
         
     }
@@ -42,7 +46,7 @@ function CreateProjectModal() {
             headers:{
                 "Content-Type":"application/json"
             },
-            body:JSON.stringify({title:data}),
+            body:JSON.stringify(data),
         })
         .then(res=>res.json())
         .then((res)=>{

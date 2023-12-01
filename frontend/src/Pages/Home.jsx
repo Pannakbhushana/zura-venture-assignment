@@ -4,6 +4,7 @@ import CreateProjectModal from '../Components/CreateProjectModal';
 import UserEmailModal from '../Components/UserEmailModal';
 import styles from "../Style/Home.module.css";
 import {useNavigate} from "react-router-dom";
+import Navbar from '../Components/Navbar';
 
 function Home() {
     const ref=useRef(true);
@@ -16,6 +17,8 @@ function Home() {
     
 
   return (
+    <>
+    <Navbar/>
     <div style={{marginTop:"5%"}}>
        {ref.current && <UserEmailModal/>}
 
@@ -58,6 +61,7 @@ function Home() {
        </div>
 
     </div>
+            </>
   )
 }
 

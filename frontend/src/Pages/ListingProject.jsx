@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../Style/ListingProject.module.css";
 import { Text,Button } from '@chakra-ui/react';
-import {useNavigate} from "react-router-dom";
+import {useNavigate,Link} from "react-router-dom";
 import { PlusSquareIcon } from '@chakra-ui/icons';
+import Navbar from '../Components/Navbar';
 
 
 function ListingProject() {
@@ -38,6 +39,7 @@ function ListingProject() {
 
   return (
     <div>
+      <Navbar/>
       <div className={styles.box}>
         <div><Text as="b" fontSize="40px" color="#7229af">Projects</Text></div>
         
@@ -54,17 +56,16 @@ function ListingProject() {
 
       <div className={styles.container}>
         {data.length && data.map((el,i)=>{
-          return <div key={i}>
+          return <Link key={i} to={`/listing/${el.id}`}>
+            <div className={styles.parent} >
 
-            <div className={styles.childOne} style={{backgroundColor: generateRandomColor()}} >
-                <Text  as="b" fontSize="40px">{el.title[0].toUpperCase()}</Text>
+              <div className={styles.childOne} style={{backgroundColor: generateRandomColor()}} >
+                  <Text  as="b" fontSize="40px">{el.title[0].toUpperCase()}</Text>
+              </div>
+
+              <div className={styles.childTwo} ><Text fontSize="20px" style={{color: generateRandomColor()}} >{el.title}</Text></div>
             </div>
-
-            <div className={styles.childTwo} > 
-              <Text fontSize="20px" style={{color: generateRandomColor()}} >{el.title}</Text>
-            </div>
-
-          </div>
+          </Link>
         })}
       </div>
     </div>
