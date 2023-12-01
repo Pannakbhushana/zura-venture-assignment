@@ -19,64 +19,27 @@
     /* border: 1px solid black; */
     width: 80%;
     min-height: 700px;
+   
+}
+.boxContainer{
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 60%;
+    margin-left: 10%;
+    
+}
+
+.textBox{
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 8%;
+    margin-left: 10%;
+    margin-top: 10%;
+    text-align: start;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
-
-.parent{
-    /* border: 1px solid black; */
-    width: 90%;
-    min-height: 60%;
-}
-
-.boxChildOne{
-    /* border: 1px solid black; */
-    width: 100%;
-    min-height: 100px;
-}
-
-.boxChildTwo{
-    /* border: 1px solid black; */
-    width: 100%;
-    min-height: 200px;
-    display: flex;
-}
-.boxSubChildOne{
-    /* border: 1px solid black; */
-    width: 20%;
-    min-height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.boxSubChildTwo{
-    /* border: 1px solid black; */
-    width: 40%;
-    min-height: 20px;  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.boxSubChildThree{
-    /* border: 1px solid black; */
-    width: 40%;
-    min-height: 20px;  
-    display: flex;
-    align-items: center;
-    justify-content: start;
-}
-
-
-.boxChildThree{
-    /* border: 1px solid black; */
-    width: 100%;
-    min-height: 150px;
-}
-
-
 
 
 @media screen and (max-width: 768px) {
@@ -100,9 +63,7 @@
         /* border: 1px solid black; */
         width: 100%;
         min-height: 700px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        display: block;
         margin-top: -60%;
     }
     

@@ -139,7 +139,10 @@ function SingleProjectPage() {
                                     <td>{el.title}</td>
                                     <td>{el.date}</td>
                                     <td>{el.status ? "Done":"Not Done"}</td>
-                                    <td><button>Edit</button> <button>Delete</button></td>
+                                    <td>
+                                        <Button colorScheme='teal' variant='outline' size='xs' onClick={()=>{navigate("/edit")}}>Edit</Button>
+                                        <Button colorScheme='teal' variant='outline' size='xs'>Delete</Button>
+                                    </td>
                                 </tr>
                                 })}
                             </tbody>
