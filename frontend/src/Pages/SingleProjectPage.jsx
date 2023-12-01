@@ -71,6 +71,7 @@ function SingleProjectPage() {
                      variant='ghost'
                      isFullWidth textAlign="left"
                      borderRadius="20px"
+                     onClick={()=>{navigate("/widget")}}
                      > 2 Widget Configuration</Button>
 
                      <br />

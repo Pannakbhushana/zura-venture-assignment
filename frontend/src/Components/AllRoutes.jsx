@@ -5,6 +5,7 @@ import PageNotFound from '../Pages/PageNotFound';
 import ListingProject from '../Pages/ListingProject';
 import SingleProjectPage from '../Pages/SingleProjectPage';
 import AccountPage from '../Pages/AccountPage';
+import WidgetConfirigation from '../Pages/WidgetConfirigation';
 
 function AllRoutes() {
   return (
@@ -13,6 +14,7 @@ function AllRoutes() {
         <Route  path='' element={<Home/>} />
         <Route  path='/listing' element={<ListingProject/>} />
         <Route  path='/account' element={<AccountPage/>} />
+        <Route  path='/widget' element={<WidgetConfirigation/>} />
         <Route  path='/listing/:id' element={<SingleProjectPage/>} />
         <Route  path='' element={<PageNotFound/>} />
       </Routes>

@@ -22,18 +22,6 @@ function Home() {
     <div style={{marginTop:"5%"}}>
        {ref.current && <UserEmailModal/>}
 
-       {/* <Button 
-            borderRadius="30px"
-            height="20px"
-            variant='outline'
-            colorScheme='messenger'
-            marginStart="-80%"
-            marginTop="-10%"
-            onClick={()=>{navigate("/listing")}}
-            >
-              <Text fontSize="10px">Go to listing</Text>
-
-            </Button> */}
 
        <Text className={styles.headerText}>Create a New Project</Text>
 
