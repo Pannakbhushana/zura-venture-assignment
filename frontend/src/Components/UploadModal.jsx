@@ -41,10 +41,20 @@ function UploadModal({id}) {
     }
 
     const handleSave=()=>{
-       
-        getData()
+       let userId=(id)
+      
+       let data=JSON.parse(localStorage.getItem("listData"));
+          for(let i=0; i<data.length; i++){
+            if(`${i}}`===id){
+                data[i].file.push(formState);
+                break;
+            }
+                   }
+               localStorage.setItem("listData",JSON.stringify(data));
+               
+    
         setFormState({name:"",description:""});
-        
+        onClose()
     }
 
     const handleModalOpen=()=>{
@@ -52,7 +62,7 @@ function UploadModal({id}) {
     }
 
     const getData=()=>{
-        fetch(`http://localhost:3000/listing/${id}`)
+        fetch(`http://localhost:8080/project/${id}`)
         .then(res=>res.json())
         .then((res)=>{
             // console.log(res)
@@ -66,7 +76,7 @@ function UploadModal({id}) {
     }
 
     const postListingData=(data)=>{
-        fetch(`http://localhost:3000/listing/${id}`,{
+        fetch(`http://localhost:8080/project/add/${id}`,{
             method:"PUT",
             headers:{
                 "Content-Type":"application/json"

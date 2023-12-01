@@ -34,14 +34,20 @@ function CreateProjectModal() {
       let data={
         title:val,
         file:[],
+        status:"false",
+        date:Date()
       }
-        postListingData(data);
-        setVal("");
+      
+        let listData=JSON.parse(localStorage.getItem("listData"))||[];
+        listData.push(data);
+        localStorage.setItem("listData",JSON.stringify(listData))
+        console.log(listData)
+        navigate("/listing")
         
     }
 
     const postListingData=(data)=>{
-        fetch("http://localhost:3000/listing",{
+        fetch("http://localhost:8080/project/add",{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"
@@ -55,7 +61,7 @@ function CreateProjectModal() {
             navigate("/listing")
         })
         .catch(err=>{
-            alert("Not abe to add project !")
+            // alert("Not abe to add project !")
             console.log(err.message)
         })
     }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../Style/ListingProject.module.css";
 import { Text,Button } from '@chakra-ui/react';
-import {useNavigate,Link} from "react-router-dom";
+import {useNavigate,Link, useParams} from "react-router-dom";
 import { PlusSquareIcon } from '@chakra-ui/icons';
 import Navbar from '../Components/Navbar';
 
@@ -11,11 +11,12 @@ function ListingProject() {
     const [data, setData]=useState([]);
 
     useEffect(()=>{
-        getListingData()
+        let Data=JSON.parse(localStorage.getItem("listData"));
+        setData(Data)
     },[])
 
     const getListingData=()=>{
-        fetch("http://localhost:3000/listing")
+        fetch("http://localhost:8080/project")
         .then(res=>res.json())
         .then((res)=>{
             console.log(res)
@@ -34,6 +35,7 @@ function ListingProject() {
         )}, ${Math.floor(Math.random() * 256)})`;
         return randomColor;
       }
+     
      
 
 
@@ -56,7 +58,8 @@ function ListingProject() {
 
       <div className={styles.container}>
         {data.length && data.map((el,i)=>{
-          return <Link key={i} to={`/listing/${el.id}`}>
+         console.log(el)
+          return <Link key={i} to={`/listing/${i}`}>
             <div className={styles.parent} >
 
               <div className={styles.childOne} style={{backgroundColor: generateRandomColor()}} >

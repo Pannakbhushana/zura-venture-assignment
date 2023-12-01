@@ -16,23 +16,24 @@ function SingleProjectPage() {
 
 
     useEffect(()=>{
-        getData()
+        const newData=JSON.parse(localStorage.getItem("listData"))||[];
+        setData(newData);
     },[])
 
 
-    const getData=()=>{
-        fetch(`http://localhost:3000/listing/${id}`)
-        .then(res=>res.json())
-        .then((res)=>{
-          setData(res.file);
+    // const getData=()=>{
+    //     fetch(`http://localhost:8080/project/{id}`)
+    //     .then(res=>res.json())
+    //     .then((res)=>{
+    //       setData(res.file);
           
-          console.log(res.file)
-        })
-        .catch(err=>{
-            alert("Not abe to add project !")
-            console.log(err.message)
-        }) 
-    }
+    //       console.log(res.file)
+    //     })
+    //     .catch(err=>{
+    //         alert("Not abe to add project !")
+    //         console.log(err.message)
+    //     }) 
+    // }
 
 
 
@@ -107,16 +108,7 @@ function SingleProjectPage() {
             <br />
 
             <div className={styles.childThree}>
-{/*                
-                {!status && <div className={styles.dragAndDrop} >
-                    <Text fontSize="60px" color="#7229af" style={{marginLeft:"47%"}}> <IoIosCloudOutline/></Text>
-                    <br />
-                    <Text fontSize="20px" color="black"> Select a file or drag and drop here (Podcast media or Transscription Text)</Text>
-                    <br />
-                    <Text fontSize="10px" color="gray"> MP4, MOV,MP3,WAV,PDFDOCX or TXT file</Text>
-                    <br />
-                    <Button colorScheme='teal' variant='outline' borderRadius="20px">Select File</Button>
-                </div>} */}
+
 
                  <div className={styles.allFile}>
                         <table>
@@ -133,8 +125,8 @@ function SingleProjectPage() {
                                 {data.map((el,i)=>{
                                     
                                     return <tr key={i}>
-                                    <td>{el.name}</td>
-                                    <td>{Date()}</td>
+                                    <td>{el.title}</td>
+                                    <td>{el.date}</td>
                                     <td>{el.status ? "Done":"Not Done"}</td>
                                     <td><button>Edit</button> <button>Delete</button></td>
                                 </tr>
