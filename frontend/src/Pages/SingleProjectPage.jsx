@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from "../Style/SingleProjectPage.module.css";
 import { Text,Button } from '@chakra-ui/react';
-import { IoIosCloudOutline } from 'react-icons/io';
+import { SettingsIcon } from '@chakra-ui/icons';
 import {useParams} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import UploadModal from '../Components/UploadModal';
@@ -89,6 +89,16 @@ function SingleProjectPage() {
                      isFullWidth textAlign="left"
                      borderRadius="20px"
                      > 4 Pricing</Button>
+
+                    <br />
+                     <Button 
+                     onClick={()=>navigate("/account")}
+                     marginTop="130%"
+                     _hover={{ bg: "#7229af",color:"#fff" }} 
+                     variant='ghost'
+                     isFullWidth textAlign="left"
+                     borderRadius="20px"
+                     > <Text as="b" fontSize="18px" style={{cursor:"pointer"}} ><SettingsIcon/></Text> <div style={{width:"10px"}}></div> Settings</Button>
                     
         </div>
 

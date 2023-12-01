@@ -22,7 +22,7 @@ function Home() {
     <div style={{marginTop:"5%"}}>
        {ref.current && <UserEmailModal/>}
 
-       <Button 
+       {/* <Button 
             borderRadius="30px"
             height="20px"
             variant='outline'
@@ -33,7 +33,7 @@ function Home() {
             >
               <Text fontSize="10px">Go to listing</Text>
 
-            </Button>
+            </Button> */}
 
        <Text className={styles.headerText}>Create a New Project</Text>
 

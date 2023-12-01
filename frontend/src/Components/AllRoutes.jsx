@@ -4,6 +4,7 @@ import Home from '../Pages/Home';
 import PageNotFound from '../Pages/PageNotFound';
 import ListingProject from '../Pages/ListingProject';
 import SingleProjectPage from '../Pages/SingleProjectPage';
+import AccountPage from '../Pages/AccountPage';
 
 function AllRoutes() {
   return (
@@ -11,6 +12,7 @@ function AllRoutes() {
       <Routes>
         <Route  path='' element={<Home/>} />
         <Route  path='/listing' element={<ListingProject/>} />
+        <Route  path='/account' element={<AccountPage/>} />
         <Route  path='/listing/:id' element={<SingleProjectPage/>} />
         <Route  path='' element={<PageNotFound/>} />
       </Routes>
